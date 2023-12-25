@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
+from datetime import date
 
 
 def configuracaoDriver():
@@ -23,28 +24,37 @@ def configuracaoDriver():
 
 
 def execucaoPrincipal(div_games):
+    with open('games.txt', 'r') as arquivoLeitura:
+        jogosLidos = arquivoLeitura.read()
+
     with open('games.txt', 'a') as arquivoEscrita:
-        for game in div_games:
-            gameInfos = game.text
+        for div_game in div_games:
+            gameInfos = div_game.text
 
             startIndex = gameInfos.find('FREE NOW')
             endIndex = gameInfos.find('Free Now')
             gameName = gameInfos[(startIndex + 9):(endIndex - 1)]
 
-            indexDate = gameInfos.rfind('at')
-            gameDate = gameInfos[(indexDate - 7):(indexDate + 11)]
+            indexGameStartDate = jogosLidos.rfind('at')
+            gameStartDate = jogosLidos[(indexGameStartDate - 7):(indexGameStartDate + 11)]
+
+            finalDate = gameInfos.rfind('at')
+            gameFinalDate = gameInfos[(finalDate - 7):(finalDate + 11)]
+
+            gameArray = [gameName, gameStartDate, gameFinalDate]
+
+            ano = date.today().year
 
             if "Unlocking" not in gameName:
-                print("Jogos Gratuitos\n" + gameName + '\n')
+                print("Jogos Gratuitos Atualmente\n" + gameName + '\n')
 
-                with open('games.txt', 'r') as arquivoLeitura:
-                    jogosLidos = arquivoLeitura.read()
+                if gameName not in jogosLidos:
+                    formatSave = str(gameArray[0] + "\n   Data de Resgate: " + str(ano) + " " + gameArray[1] + " -> " + str(ano) + " " + gameArray[2] + "\n\n")
+                    arquivoEscrita.write(formatSave)
 
-                    if gameName not in jogosLidos:
-                        arquivoEscrita.write(gameName + ' - ' + gameDate + '\n')
-                        print("Jogo adicionado.")
-                    else:
-                        print("Jogo já adicionado.")
+                    print("Adicionando jogo ao arquivo...\n")
+                else:
+                    print("Jogo já adicionado ao arquivo.\n")
     return
 
 
@@ -55,3 +65,5 @@ if __name__ == '__main__':
 
     # Fechar o navegador
     driver.quit()
+
+    print("Fim da execução")
