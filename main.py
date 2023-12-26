@@ -27,6 +27,13 @@ def execucaoPrincipal(div_games):
     with open('games.txt', 'r') as arquivoLeitura:
         jogosLidos = arquivoLeitura.read()
 
+    indexGameStartDate = jogosLidos.rfind('at')
+    gameStartDate = jogosLidos[(indexGameStartDate - 7):(indexGameStartDate + 11)]
+
+    ano = date.today().year
+
+    print("Jogos Gratuitos no Momento:")
+
     with open('games.txt', 'a') as arquivoEscrita:
         for div_game in div_games:
             gameInfos = div_game.text
@@ -35,18 +42,13 @@ def execucaoPrincipal(div_games):
             endIndex = gameInfos.find('Free Now')
             gameName = gameInfos[(startIndex + 9):(endIndex - 1)]
 
-            indexGameStartDate = jogosLidos.rfind('at')
-            gameStartDate = jogosLidos[(indexGameStartDate - 7):(indexGameStartDate + 11)]
-
             finalDate = gameInfos.rfind('at')
             gameFinalDate = gameInfos[(finalDate - 7):(finalDate + 11)]
 
             gameArray = [gameName, gameStartDate, gameFinalDate]
 
-            ano = date.today().year
-
             if "Unlocking" not in gameName:
-                print("Jogos Gratuitos Atualmente\n" + gameName + '\n')
+                print(gameName + '\n')
 
                 if gameName not in jogosLidos:
                     formatSave = str(gameArray[0] + "\n   Data de Resgate: " + str(ano) + " " + gameArray[1] + " -> " + str(ano) + " " + gameArray[2] + "\n\n")
