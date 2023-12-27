@@ -74,7 +74,7 @@ def execucaoPrincipal(div_games):
                     formatSave = str(gameArray[0] + "\n   Data de Resgate: " + str(ano) + " " + gameArray[1] + " -> " + str(ano) + " " + gameArray[2] + "\n\n")
                     # Registra efetivamente os dados no arquivo
                     arquivoEscrita.write(formatSave)
-                    print("Adicionando jogo ao arquivo...\n")
+                    print("Adicionando jogo ao arquivo\n")
 
                 else:
                     print("Jogo já adicionado ao arquivo.\n")
@@ -92,7 +92,7 @@ if __name__ == '__main__':
         # Fechar o navegador
         driver.quit()
 
-        print("Fim da execução")
+        print("Finalizando execução...")
 
     # Exceção de interrupção manual do programa
     except KeyboardInterrupt:
