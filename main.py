@@ -61,11 +61,15 @@ def execucaoPrincipal(div_games):
 
 
 if __name__ == '__main__':
-    driver, divGames = configuracaoDriver()
+    try:
+        driver, divGames = configuracaoDriver()
 
-    execucaoPrincipal(divGames)
+        execucaoPrincipal(divGames)
 
-    # Fechar o navegador
-    driver.quit()
+        # Fechar o navegador
+        driver.quit()
 
-    print("Fim da execução")
+        print("Fim da execução")
+
+    except KeyboardInterrupt:
+        print('Saindo do programa...')
