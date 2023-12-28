@@ -1,30 +1,107 @@
-<h1>Web Scraping - Epic Games Store</h1>
-<h2>Introduction</h2>
-<p>Web scraping is a technique to automatically access and extract large amounts of information from a website, which can save a huge amount of time and effort. In this project, I will scrape the data from the Epic Games Store website and store it in a structured format for later analysis.</p>
+# Introduction
 
-<h2>Project Structure</h2>
-<ul>
-<li><b>epic_games_store_scraping.ipynb</b> - Jupyter notebook with the code for scraping the data</li>
-<li><b>epic_games_store.csv</b> - CSV file with the scraped data</li>
-</ul>
+This project focuses on web scraping the weekly free games offered by Epic Games. The script, written in Python, utilizes the Selenium library to extract information about the free games from the Epic Games store website. The data is then saved to a text file (`games.txt`), providing a convenient list of free games along with their redemption dates.
 
-<h2>Code</h2>
-<p>The code is written in Python 3.7.3. If you don't have Python installed you can find it <a href="https://www.python.org/downloads/">here</a>. The code is in the Jupyter notebook <b>epic_games_store_scraping.ipynb</b>. To run the code you need to install the following libraries:</p>
-<ul>
-<li><b>requests</b> - To make requests and download the HTML content of the pages</li>
-<li><b>BeautifulSoup</b> - To parse the HTML content and extract the data</li>
-<li><b>pandas</b> - To store the data in a structured format and save it to a CSV file</li>
-</ul>
+# Project Structure
 
-<h2>Run</h2>
-<p>To run the code you need to open the Jupyter notebook <b>epic_games_store_scraping.ipynb</b> and run all the cells. The data will be stored in the file <b>epic_games_store.csv</b>.</p>
+The project repository includes the following files:
 
-<h2>References</h2>
-<ul>
-<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup Documentation</a></li>
-<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup Documentation</a></li>
-<li><a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">Beautiful Soup Documentation</a></li>
-</ul>
+- **main.py:** The main Python script containing the web scraping logic.
+- **chromedriver.exe:** The ChromeDriver executable required by Selenium for browser automation.
+- **games.txt:** A text file that serves as a log, storing information about previously scraped free games.
+- **LICENSE:** The Apache 2.0 license file.
+- **README.md:** This file, providing documentation for the project.
+- **.gitignore:** Specifies files and directories to be ignored by version control.
 
-<h2>License</h2>
-<p>This project is licensed under the MIT License - see the <a href="https://github.com/GabrielMaida/WebScraping-Epic-Games/blob/main/LICENSE">LICENSE</a> file for details</p>
+# Code
+
+The core of the project is in `main.py`, where the Selenium WebDriver is configured to interact with the Epic Games store website. The script extracts relevant information about free games, checks for duplicates, and appends new entries to the `games.txt` log file.
+
+```python
+# Insert your code here
+```
+
+# Run
+
+To run the project locally, follow these steps:
+
+1. Ensure you have Python installed on your machine.
+2. Install the required Python packages using:
+   ```bash
+   pip install selenium
+   ```
+3. Download the ChromeDriver executable and update the `chrome_path` variable in `main.py` accordingly.
+4. Execute the script:
+   ```bash
+   python main.py
+   ```
+
+# References
+
+- [Selenium Documentation](https://www.selenium.dev/documentation/en/)
+- [Python Official Website](https://www.python.org/)
+
+# License
+
+This project is licensed under the [Apache 2.0 License](LICENSE). See the LICENSE file for more details.
+
+Feel free to explore, modify, and share the code following the terms of the license.
+
+For any questions or issues, please don't hesitate to reach out.
+
+Happy coding!
+
+---
+
+# Introdução
+
+Este projeto foca em fazer web scraping dos jogos gratuitos semanais oferecidos pela Epic Games. O script, escrito em Python, utiliza a biblioteca Selenium para extrair informações sobre os jogos gratuitos do site da Epic Games. Os dados são então salvos em um arquivo de texto (`games.txt`), fornecendo uma lista conveniente de jogos gratuitos juntamente com suas datas de resgate.
+
+# Estrutura do Projeto
+
+O repositório do projeto inclui os seguintes arquivos:
+
+- **main.py:** O script principal em Python contendo a lógica de web scraping.
+- **chromedriver.exe:** O executável do ChromeDriver necessário pelo Selenium para automação do navegador.
+- **games.txt:** Um arquivo de texto que serve como um registro, armazenando informações sobre os jogos gratuitos previamente obtidos.
+- **LICENSE:** O arquivo de licença Apache 2.0.
+- **README.md:** Este arquivo, fornecendo documentação para o projeto.
+- **.gitignore:** Especifica arquivos e diretórios a serem ignorados pelo controle de versão.
+
+# Código
+
+O núcleo do projeto está em `main.py`, onde o WebDriver do Selenium é configurado para interagir com o site da Epic Games. O script extrai informações relevantes sobre os jogos gratuitos, verifica duplicatas e adiciona novas entradas ao arquivo de log `games.txt`.
+
+```python
+# Insira seu código aqui
+```
+
+# Execução
+
+Para executar o projeto localmente, siga estas etapas:
+
+1. Certifique-se de ter o Python instalado em sua máquina.
+2. Instale os pacotes Python necessários usando:
+   ```bash
+   pip install selenium
+   ```
+3. Faça o download do executável do ChromeDriver e atualize a variável `chrome_path` em `main.py` conforme necessário.
+4. Execute o script:
+   ```bash
+   python main.py
+   ```
+
+# Referências
+
+- [Documentação do Selenium](https://www.selenium.dev/documentation/en/)
+- [Site Oficial do Python](https://www.python.org/)
+
+# Licença
+
+Este projeto está licenciado sob a [Licença Apache 2.0](LICENSE). Consulte o arquivo LICENSE para obter mais detalhes.
+
+Sinta-se à vontade para explorar, modificar e compartilhar o código seguindo os termos da licença.
+
+Para qualquer dúvida ou problema, não hesite em entrar em contato.
+
+Feliz codificação!
