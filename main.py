@@ -38,7 +38,7 @@ def execucaoPrincipal(div_games):
     # Obtenção do ano atual para registro no arquivo
     ano = date.today().year
 
-    print("Jogos Gratuitos no Momento:")
+    print("Jogos Gratuitos no Momento:\n")
 
     # Abertura do arquivo no modo 'Append'
     with open('games.txt', 'a') as arquivoEscrita:
@@ -46,12 +46,16 @@ def execucaoPrincipal(div_games):
         for div_game in div_games:
             # Conversão das informações da div do jogo para string
             gameInfos = div_game.text
+            print(gameInfos.lower())
 
             # Obtenção dos índices para extração do nome do jogo
-            startIndex = gameInfos.find('FREE NOW')
-            endIndex = gameInfos.find('Free Now')
-            # Extração do nome do jogo
-            gameName = gameInfos[(startIndex + 9):(endIndex - 1)]
+            if 'free now' in gameInfos.lower():
+                startIndex = gameInfos.find('FREE NOW')
+                endIndex = gameInfos.find('Free Now')
+                # Extração do nome do jogo
+                gameName = gameInfos[(startIndex + 9):(endIndex - 1)]
+            else:
+                gameName = False
 
             # Obtenção do índice para extração da data limite de resgate
             finalDate = gameInfos.rfind('at')
@@ -59,25 +63,29 @@ def execucaoPrincipal(div_games):
             gameFinalDate = gameInfos[(finalDate - 7):(finalDate + 11)]
 
             # Armazenamento dos dados do jogo extraído em uma lista para acesso posterior
-            gameArray = [gameName, gameStartDate, gameFinalDate]
+            gameArray = [str(gameName), gameStartDate, gameFinalDate]
 
             # Condição que analisa se existe a palavra 'unlocking' no nome do jogo,
             # Pois isso significa que o jogo ainda não foi liberado para resgate
-            if "Unlocking" not in gameName:
+            if "unlocking" not in gameInfos.lower() and "coming soon" not in gameInfos.lower():
                 # Print do nome do jogo
-                print(gameName + '\n')
+                print('-' + str(gameName) + '\n')
 
                 # Condição que analisa se o jogo em questão já foi salvo no arquivo anteriormente
                 # Para evitar duplicação dos dados
-                if gameName not in jogosLidos:
+                if str(gameName) not in jogosLidos:
                     # Configura a formatação do registro das informações no arquivo
-                    formatSave = str(gameArray[0] + "\n   Data de Resgate: " + str(ano) + " " + gameArray[1] + " -> " + str(ano) + " " + gameArray[2] + "\n\n")
+                    formatSave = str("\n\n" + gameArray[0] + "\n   Data de Resgate: " + str(ano) + " " + gameArray[1] + " -> " + str(ano) + " " + gameArray[2])
                     # Registra efetivamente os dados no arquivo
                     arquivoEscrita.write(formatSave)
                     print("Adicionando jogo ao arquivo\n")
 
                 else:
                     print("Jogo já adicionado ao arquivo.\n")
+            else:
+                print("Próximos jogos:\n")
+                print(gameArray)
+
     return
 
 
