@@ -9,17 +9,10 @@ The project repository includes the following files:
 - **main.py:** The main Python script containing the web scraping logic.
 - **chromedriver.exe:** The ChromeDriver executable required by Selenium for browser automation.
 - **games.txt:** A text file that serves as a log, storing information about previously scraped free games.
-- **LICENSE:** The Apache 2.0 license file.
-- **README.md:** This file, providing documentation for the project.
-- **.gitignore:** Specifies files and directories to be ignored by version control.
 
 # Code
 
 The core of the project is in `main.py`, where the Selenium WebDriver is configured to interact with the Epic Games store website. The script extracts relevant information about free games, checks for duplicates, and appends new entries to the `games.txt` log file.
-
-```python
-# Insert your code here
-```
 
 # Run
 
@@ -64,17 +57,10 @@ O repositório do projeto inclui os seguintes arquivos:
 - **main.py:** O script principal em Python contendo a lógica de web scraping.
 - **chromedriver.exe:** O executável do ChromeDriver necessário pelo Selenium para automação do navegador.
 - **games.txt:** Um arquivo de texto que serve como um registro, armazenando informações sobre os jogos gratuitos previamente obtidos.
-- **LICENSE:** O arquivo de licença Apache 2.0.
-- **README.md:** Este arquivo, fornecendo documentação para o projeto.
-- **.gitignore:** Especifica arquivos e diretórios a serem ignorados pelo controle de versão.
 
 # Código
 
 O núcleo do projeto está em `main.py`, onde o WebDriver do Selenium é configurado para interagir com o site da Epic Games. O script extrai informações relevantes sobre os jogos gratuitos, verifica duplicatas e adiciona novas entradas ao arquivo de log `games.txt`.
-
-```python
-# Insira seu código aqui
-```
 
 # Execução
 
