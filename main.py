@@ -1,4 +1,4 @@
-# Importação das bibliotecas necessárias
+# Importação das bibliotecas
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from datetime import date
@@ -19,7 +19,7 @@ def configuracaoDriver():
     driver_config.get(URL_BASE)
 
     # Encontrar os elementos que contêm os jogos gratuitos
-    games = driver_config.find_elements("class name", "css-1ukp34s")
+    games = driver_config.find_elements("class name", "css-1myhtyb")
 
     return driver_config, games
 
@@ -46,7 +46,6 @@ def execucaoPrincipal(div_games):
         for div_game in div_games:
             # Conversão das informações da div do jogo para string
             gameInfos = div_game.text
-            print(gameInfos.lower())
 
             # Obtenção dos índices para extração do nome do jogo
             if 'free now' in gameInfos.lower():
@@ -54,22 +53,23 @@ def execucaoPrincipal(div_games):
                 endIndex = gameInfos.find('Free Now')
                 # Extração do nome do jogo
                 gameName = gameInfos[(startIndex + 9):(endIndex - 1)]
+
+                # Obtenção do índice para extração da data limite de resgate
+                finalDate = gameInfos.rfind('at')
+                # Extração da data limite de resgate
+                gameFinalDate = gameInfos[(finalDate - 7):(finalDate + 11)]
+
+                # Armazenamento dos dados do jogo extraído em uma lista para acesso posterior
+                gameArray = [str(gameName), gameStartDate, gameFinalDate]
+
             else:
-                gameName = False
-
-            # Obtenção do índice para extração da data limite de resgate
-            finalDate = gameInfos.rfind('at')
-            # Extração da data limite de resgate
-            gameFinalDate = gameInfos[(finalDate - 7):(finalDate + 11)]
-
-            # Armazenamento dos dados do jogo extraído em uma lista para acesso posterior
-            gameArray = [str(gameName), gameStartDate, gameFinalDate]
+                continue
 
             # Condição que analisa se existe a palavra 'unlocking' no nome do jogo,
             # Pois isso significa que o jogo ainda não foi liberado para resgate
-            if "unlocking" not in gameInfos.lower() and "coming soon" not in gameInfos.lower():
+            if any(keyword not in gameInfos.lower() for keyword in ['unlocking', 'coming soon', 'base game', 'available']):
                 # Print do nome do jogo
-                print('-' + str(gameName) + '\n')
+                print(str(gameName) + '\n')
 
                 # Condição que analisa se o jogo em questão já foi salvo no arquivo anteriormente
                 # Para evitar duplicação dos dados
@@ -97,7 +97,7 @@ if __name__ == '__main__':
         # Execução principal
         execucaoPrincipal(divGames)
 
-        # Fechar o navegador
+        # Fecha o navegador
         driver.quit()
 
         print("Finalizando execução...")
