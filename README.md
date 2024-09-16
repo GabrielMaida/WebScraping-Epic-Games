@@ -6,13 +6,13 @@ This project focuses on web scraping the weekly free games offered by Epic Games
 
 The project repository includes the following files:
 
-- **main.py:** The main Python script containing the web scraping logic.
+- **app.py:** The main Python script containing the web scraping logic.
 - **chromedriver.exe:** The ChromeDriver executable required by Selenium for browser automation.
 - **games.txt:** A text file that serves as a log, storing information about previously scraped free games.
 
 # Code
 
-The core of the project is in `main.py`, where the Selenium WebDriver is configured to interact with the Epic Games store website. The script extracts relevant information about free games, checks for duplicates, and appends new entries to the `games.txt` log file.
+The core of the project is in `app.py`, where the Selenium WebDriver is configured to interact with the Epic Games store website. The script extracts relevant information about free games, checks for duplicates, and appends new entries to the `games.txt` log file.
 
 # Run
 
@@ -23,10 +23,10 @@ To run the project locally, follow these steps:
    ```bash
    pip install selenium
    ```
-3. Download the ChromeDriver executable and update the `chrome_path` variable in `main.py` accordingly.
+3. Download the ChromeDriver executable and update the `chrome_path` variable in `app.py` accordingly.
 4. Execute the script:
    ```bash
-   python main.py
+   python app.py
    ```
 
 # References
@@ -54,13 +54,13 @@ Este projeto foca em fazer web scraping dos jogos gratuitos semanais oferecidos 
 
 O repositório do projeto inclui os seguintes arquivos:
 
-- **main.py:** O script principal em Python contendo a lógica de web scraping.
+- **app.py:** O script principal em Python contendo a lógica de web scraping.
 - **chromedriver.exe:** O executável do ChromeDriver necessário pelo Selenium para automação do navegador.
 - **games.txt:** Um arquivo de texto que serve como um registro, armazenando informações sobre os jogos gratuitos previamente obtidos.
 
 # Código
 
-O núcleo do projeto está em `main.py`, onde o WebDriver do Selenium é configurado para interagir com o site da Epic Games. O script extrai informações relevantes sobre os jogos gratuitos, verifica duplicatas e adiciona novas entradas ao arquivo de log `games.txt`.
+O núcleo do projeto está em `app.py`, onde o WebDriver do Selenium é configurado para interagir com o site da Epic Games. O script extrai informações relevantes sobre os jogos gratuitos, verifica duplicatas e adiciona novas entradas ao arquivo de log `games.txt`.
 
 # Execução
 
@@ -71,10 +71,10 @@ Para executar o projeto localmente, siga estas etapas:
    ```bash
    pip install selenium
    ```
-3. Faça o download do executável do ChromeDriver e atualize a variável `chrome_path` em `main.py` conforme necessário.
+3. Faça o download do executável do ChromeDriver e atualize a variável `chrome_path` em `app.py` conforme necessário.
 4. Execute o script:
    ```bash
-   python main.py
+   python app.py
    ```
 
 # Referências
