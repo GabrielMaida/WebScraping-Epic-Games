@@ -6,7 +6,7 @@ from datetime import date
 
 def configuracaoDriver():
     # Caminho do executável do ChromeDriver
-    chrome_path = 'C:\Desenvolvimento\workspace\WebScrapEpicGames\chromedriver.exe'
+    chrome_path = r"C:\Users\proto\OneDrive\Área de Trabalho\Workspace\webscraping\WebScraping-Epic-Games\chromedriver.exe"
 
     # Configuração do WebDriver do Chrome
     chrome_service = ChromeService(chrome_path)
