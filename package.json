@@ -1,0 +1,29 @@
+{
+  "name": "webscraping-epic-games",
+  "version": "1.0.0",
+  "description": "Webscraping dos jogos gratuitos da Epic Games para disponibilização através de API, feito em NodeJS",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielMaida/WebScraping-Epic-Games.git"
+  },
+  "keywords": [
+    "webscraping",
+    "nodejs",
+    "api"
+  ],
+  "author": "Gabriel Antônio Maida",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GabrielMaida/WebScraping-Epic-Games/issues"
+  },
+  "homepage": "https://github.com/GabrielMaida/WebScraping-Epic-Games#readme",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "cheerio": "^1.0.0",
+    "express": "^4.21.0"
+  }
+}
