@@ -12,7 +12,7 @@ const URL = process.env.WEBSITE_URL;
 
 function getGames($) {
     const currentGame = $('#article-body>p:nth-child(13)').text();
-    // console.log(currentGame);
+    console.log(currentGame);
 
     const nextGame = $('#article-body>p:nth-child(17)').text();
     // console.log(nextGame);
@@ -54,7 +54,7 @@ async function getResponse(websiteURL) {
     }
 }
 
-async function main() {
+function main() {
     try {
         getResponse(URL);
         
